@@ -1,0 +1,166 @@
+/* Resume Templates */
+
+/* Base Resume Styling */
+#resume-preview {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: white;
+  margin: 0;
+  padding: 1.5rem;
+  color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+#resume-preview h1,
+#resume-preview h2 {
+  margin-top: 0;
+}
+
+.resume-header {
+  margin-bottom: 1.5rem;
+}
+
+.resume-section {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.experience-item,
+.education-item {
+  margin-bottom: 1rem;
+}
+
+.experience-title,
+.education-degree {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.experience-company,
+.education-institution {
+  font-weight: 500;
+}
+
+.experience-date,
+.education-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Modern Template */
+.modern-template {
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #333;
+}
+
+.modern-template .resume-header {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.modern-template .contact-info {
+  justify-content: center;
+}
+
+.modern-template .resume-section h2 {
+  color: #3498db;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modern-template .experience-title,
+.modern-template .education-degree {
+  color: #2c3e50;
+}
+
+.modern-template #preview-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.modern-template .skill {
+  background-color: #f0f7ff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+}
+
+/* Classic Template */
+.classic-template {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #444;
+}
+
+.classic-template .resume-header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 1rem;
+}
+
+.classic-template .resume-header h1 {
+  font-size: 1.8rem;
+}
+
+.classic-template .contact-info {
+  justify-content: space-between;
+}
+
+.classic-template .resume-section h2 {
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+}
+
+.classic-template .experience-title,
+.classic-template .education-degree {
+  font-style: italic;
+}
+
+/* Minimal Template */
+.minimal-template {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #222;
+}
+
+.minimal-template .resume-header {
+  margin-bottom: 2rem;
+}
+
+.minimal-template .resume-header h1 {
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.minimal-template .resume-section h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.minimal-template .contact-info {
+  color: #666;
+}
+
+.minimal-template .experience-title,
+.minimal-template .education-degree {
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.05rem;
+}
+
+.minimal-template .experience-company,
+.minimal-template .education-institution {
+  color: #555;
+}

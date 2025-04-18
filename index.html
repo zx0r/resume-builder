@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Resume Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="templates.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>Simple Resume Builder</h1>
+        <div class="actions">
+          <button id="print-btn" onclick="window.print()">
+            Print / Save PDF
+          </button>
+          <select id="template-selector" onchange="changeTemplate()">
+            <option value="modern">Modern Template</option>
+            <option value="classic">Classic Template</option>
+            <option value="minimal">Minimal Template</option>
+          </select>
+        </div>
+      </header>
+
+      <main>
+        <section class="editor">
+          <h2>Resume Editor</h2>
+
+          <div class="form-section">
+            <h3>Personal Information</h3>
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input
+                type="text"
+                id="full-name"
+                oninput="updateResume('name', this.value)"
+                placeholder="Your Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="job-title">Professional Title</label>
+              <input
+                type="text"
+                id="job-title"
+                oninput="updateResume('title', this.value)"
+                placeholder="e.g., Front-end Developer"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                oninput="updateResume('email', this.value)"
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                oninput="updateResume('phone', this.value)"
+                placeholder="(555) 123-4567"
+              />
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input
+                type="text"
+                id="location"
+                oninput="updateResume('location', this.value)"
+                placeholder="City, State"
+              />
+            </div>
+            <div class="form-group">
+              <label for="website">Website/LinkedIn</label>
+              <input
+                type="url"
+                id="website"
+                oninput="updateResume('website', this.value)"
+                placeholder="linkedin.com/in/yourname"
+              />
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Professional Summary</h3>
+            <div class="form-group">
+              <textarea
+                id="summary"
+                oninput="updateResume('summary', this.value)"
+                rows="4"
+                placeholder="Brief overview of your professional background and key strengths"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Work Experience</h3>
+            <div id="experience-container">
+              <div class="experience-entry">
+                <div class="form-group">
+                  <label>Job Title</label>
+                  <input
+                    type="text"
+                    class="job-position"
+                    oninput="updateExperience(0)"
+                    placeholder="Position Title"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Company</label>
+                  <input
+                    type="text"
+                    class="job-company"
+                    oninput="updateExperience(0)"
+                    placeholder="Company Name"
+                  />
+                </div>
+                <div class="form-group form-row">
+                  <div class="form-group half">
+                    <label>Start Date</label>
+                    <input
+                      type="text"
+                      class="job-start-date"
+                      oninput="updateExperience(0)"
+                      placeholder="MM/YYYY"
+                    />
+                  </div>
+                  <div class="form-group half">
+                    <label>End Date</label>
+                    <input
+                      type="text"
+                      class="job-end-date"
+                      oninput="updateExperience(0)"
+                      placeholder="MM/YYYY or Present"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea
+                    class="job-description"
+                    oninput="updateExperience(0)"
+                    rows="3"
+                    placeholder="Describe your responsibilities and achievements"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              id="add-experience"
+              onclick="addExperienceField()"
+            >
+              + Add Experience
+            </button>
+          </div>
+
+          <div class="form-section">
+            <h3>Education</h3>
+            <div id="education-container">
+              <div class="education-entry">
+                <div class="form-group">
+                  <label>Degree</label>
+                  <input
+                    type="text"
+                    class="education-degree"
+                    oninput="updateEducation(0)"
+                    placeholder="Degree / Certificate"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Institution</label>
+                  <input
+                    type="text"
+                    class="education-institution"
+                    oninput="updateEducation(0)"
+                    placeholder="University / School"
+                  />
+                </div>
+                <div class="form-group form-row">
+                  <div class="form-group half">
+                    <label>Start Year</label>
+                    <input
+                      type="text"
+                      class="education-start"
+                      oninput="updateEducation(0)"
+                      placeholder="YYYY"
+                    />
+                  </div>
+                  <div class="form-group half">
+                    <label>End Year</label>
+                    <input
+                      type="text"
+                      class="education-end"
+                      oninput="updateEducation(0)"
+                      placeholder="YYYY or Present"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              id="add-education"
+              onclick="addEducationField()"
+            >
+              + Add Education
+            </button>
+          </div>
+
+          <div class="form-section">
+            <h3>Skills</h3>
+            <div class="form-group">
+              <textarea
+                id="skills"
+                oninput="updateResume('skills', this.value)"
+                rows="3"
+                placeholder="List your key skills, separated by commas"
+              ></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="preview">
+          <div id="resume-preview" class="modern-template">
+            <!-- Header -->
+            <div class="resume-header">
+              <h1 id="preview-name">Your Name</h1>
+              <p id="preview-title">Professional Title</p>
+              <div class="contact-info">
+                <span id="preview-email">email@example.com</span>
+                <span id="preview-phone">(555) 123-4567</span>
+                <span id="preview-location">City, State</span>
+                <span id="preview-website">website.com</span>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="resume-section">
+              <h2>Professional Summary</h2>
+              <p id="preview-summary">
+                A brief summary of your professional background and key
+                strengths will appear here.
+              </p>
+            </div>
+
+            <!-- Experience -->
+            <div class="resume-section">
+              <h2>Experience</h2>
+              <div id="preview-experience">
+                <p class="no-data">Your work experience will appear here.</p>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="resume-section">
+              <h2>Education</h2>
+              <div id="preview-education">
+                <p class="no-data">Your education will appear here.</p>
+              </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="resume-section">
+              <h2>Skills</h2>
+              <p id="preview-skills">Your skills will appear here.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Simple Resume Builder - No frameworks, just HTML, CSS, and minimal
+          JavaScript
+        </p>
+        <p>
+          Save as PDF by using the Print button and selecting "Save as PDF" in
+          your browser's print dialog
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
