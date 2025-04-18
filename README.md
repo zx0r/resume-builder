@@ -13,7 +13,7 @@ A lightweight resume builder that runs entirely in the browser with no backend d
 
 ## Demo
 
-Visit [https://zx0r.github.io/resume-builder](https://yourusername.github.io/resume-builder) to try it out!
+Visit [https://zx0r.github.io/resume-builder](https://zx0r.github.io/resume-builder) to try it out!
 
 ![Resume Builder Screenshot](assets/screenshots/modern-template.png)
 
